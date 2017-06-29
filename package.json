@@ -1,0 +1,60 @@
+{
+  "name": "@mapbox/rehype-highlight-code-block",
+  "description": "rehype plugin that finds code blocks in HTML and lets you highlight them",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint": "eslint *.js test lib",
+    "format": "prettier --single-quote --write '{,lib/**/,test/**/}*.js'",
+    "test-jest": "jest",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapbox/rehype-highlight-code-block.git"
+  },
+  "keywords": [
+    "rehype",
+    "rehype-plugin",
+    "syntax-highlighting",
+    "highlight",
+    "html"
+  ],
+  "author": "Mapbox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mapbox/rehype-highlight-code-block/issues"
+  },
+  "homepage": "https://github.com/mapbox/rehype-highlight-code-block#readme",
+  "lint-staged": {
+    "{,lib/**/,test/**/}*.js": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ],
+    "resetMocks": true
+  },
+  "devDependencies": {
+    "eslint": "^4.1.1",
+    "eslint-plugin-node": "^5.1.0",
+    "husky": "^0.14.1",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.0",
+    "prettier": "^1.5.2"
+  },
+  "dependencies": {
+    "hast-util-from-parse5": "^2.0.1",
+    "hast-util-to-string": "^1.0.0",
+    "parse5": "^3.0.2",
+    "unist-util-visit": "^1.1.3"
+  }
+}
