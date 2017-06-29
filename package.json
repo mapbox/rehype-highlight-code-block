@@ -30,6 +30,7 @@
   "homepage": "https://github.com/mapbox/rehype-highlight-code-block#readme",
   "lint-staged": {
     "{,lib/**/,test/**/}*.js": [
+      "eslint",
       "prettier --single-quote --write",
       "git add"
     ]
