@@ -39,7 +39,7 @@ const yourHighlightingFunction = require('../path/to/it');
 
 rehype()
   .use(rehypeHighlightCodeBlock, {
-    highlgiht: yourHighlightingFunction
+    highlight: yourHighlightingFunction
   })
   .process(/* some html */);
 ```
@@ -53,7 +53,7 @@ const yourHighlightingFunction = require('../path/to/it');
 unified()
   .use(rehypeParse)
   .use(rehypeHighlightCodeBlock, {
-    highlgiht: yourHighlightingFunction
+    highlight: yourHighlightingFunction
   })
   .processSync(/* some html */);
 ```
@@ -71,7 +71,7 @@ unified()
   .use(remarkParse)
   .use(remarkRehype)
   .use(rehypeHighlightCodeBlock, {
-    highlgiht: yourHighlightingFunction
+    highlight: yourHighlightingFunction
   })
   .process(/* some markdown */);
 ```
