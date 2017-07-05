@@ -45,12 +45,14 @@
     "resetMocks": true
   },
   "devDependencies": {
+    "dedent": "^0.7.0",
     "eslint": "^4.1.1",
     "eslint-plugin-node": "^5.1.0",
     "husky": "^0.14.1",
     "jest": "^20.0.4",
     "lint-staged": "^4.0.0",
-    "prettier": "^1.5.2"
+    "prettier": "^1.5.2",
+    "rehype": "^5.0.0"
   },
   "dependencies": {
     "hast-util-from-parse5": "^2.0.1",
