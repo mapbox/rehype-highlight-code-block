@@ -6,8 +6,7 @@ const Parser5 = require('parse5/lib/parser');
 const nodeFromParse5 = require('hast-util-from-parse5');
 
 const parse5 = new Parser5();
-const LANGUAGE_CLASS_REGEXP = /^(?!language-|lang-)(\S+)/;
-
+const LANGUAGE_CLASS_REGEXP = /^(?:language-|lang-)(\S+)/;
 function getLanguage(node) {
   const className = node.properties.className || [];
 

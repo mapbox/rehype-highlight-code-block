@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rehypeHighlightCodeBlock does nothing to code block, missing <code></code> 1`] = `"<pre>p { color: red }</pre>"`;
+
+exports[`rehypeHighlightCodeBlock does nothing to code block, missing <pre></pre> 1`] = `"<code>p { color: red }</code>"`;
+
+exports[`rehypeHighlightCodeBlock does nothing to code block, missing pre > code 1`] = `"<div>p { color: red }</div>"`;
+
+exports[`rehypeHighlightCodeBlock mocks syntax highlighting with lang-* class 1`] = `
+"<div>
+  <p>foo</p>
+  <pre><code class=\\"lang-css\\"><span>mockSyntaxHighlighting</span></code></pre>
+  <p>bar</p>
+</div>"
+`;
+
+exports[`rehypeHighlightCodeBlock mocks syntax highlighting with language-* class 1`] = `
+"<div>
+  <p>foo</p>
+  <pre><code class=\\"language-css\\"><span>mockSyntaxHighlighting</span></code></pre>
+  <p>bar</p>
+</div>"
+`;
+
+exports[`rehypeHighlightCodeBlock mocks syntax highlighting with no language class 1`] = `
+"<div>
+  <p>foo</p>
+  <pre><code><span>mockSyntaxHighlighting</span></code></pre>
+  <p>bar</p>
+</div>"
+`;
