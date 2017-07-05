@@ -5,16 +5,16 @@ const dedent = require('dedent');
 const rehypeHighlightCodeBlock = require('..');
 
 describe('rehypeHighlightCodeBlock', () => {
-  let mockHighLightSpy;
+  let mockHighlightSpy;
   let processHtml;
 
   beforeEach(() => {
-    mockHighLightSpy = jest.fn(() => '<span>mockSyntaxHighlighting</span>');
+    mockHighlightSpy = jest.fn(() => '<span>mockSyntaxHighlighting</span>');
     processHtml = html => {
       return rehype()
         .data('settings', { fragment: true })
         .use(rehypeHighlightCodeBlock, {
-          highlight: mockHighLightSpy
+          highlight: mockHighlightSpy
         })
         .processSync(html)
         .toString();
@@ -29,8 +29,7 @@ describe('rehypeHighlightCodeBlock', () => {
         <p>bar</p>
       </div>
     `);
-    expect(mockHighLightSpy.mock.calls[0].length).toBe(2);
-    expect(mockHighLightSpy.mock.calls[0][1]).toBe('css');
+    expect(mockHighlightSpy).toHaveBeenCalledWith(`p { color: red }`, 'css');
     expect(result).toMatchSnapshot();
   });
 
@@ -42,8 +41,7 @@ describe('rehypeHighlightCodeBlock', () => {
         <p>bar</p>
       </div>
     `);
-    expect(mockHighLightSpy.mock.calls[0].length).toBe(2);
-    expect(mockHighLightSpy.mock.calls[0][1]).toBe('css');
+    expect(mockHighlightSpy).toHaveBeenCalledWith(`p { color: red }`, 'css');
     expect(result).toMatchSnapshot();
   });
 
@@ -55,8 +53,7 @@ describe('rehypeHighlightCodeBlock', () => {
         <p>bar</p>
       </div>
     `);
-    expect(mockHighLightSpy.mock.calls[0].length).toBe(2);
-    expect(mockHighLightSpy.mock.calls[0][1]).toBe(null);
+    expect(mockHighlightSpy).toHaveBeenCalledWith(`p { color: red }`, null);
     expect(result).toMatchSnapshot();
   });
 
@@ -64,7 +61,7 @@ describe('rehypeHighlightCodeBlock', () => {
     const result = processHtml(dedent`
       <code>p { color: red }</code>
     `);
-    expect(mockHighLightSpy.mock.calls.length).toBe(0);
+    expect(mockHighlightSpy).toHaveBeenCalledTimes(0);
     expect(result).toMatchSnapshot();
   });
 
@@ -72,7 +69,7 @@ describe('rehypeHighlightCodeBlock', () => {
     const result = processHtml(dedent`
       <pre>p { color: red }</pre>
     `);
-    expect(mockHighLightSpy.mock.calls.length).toBe(0);
+    expect(mockHighlightSpy).toHaveBeenCalledTimes(0);
     expect(result).toMatchSnapshot();
   });
 
@@ -80,7 +77,7 @@ describe('rehypeHighlightCodeBlock', () => {
     const result = processHtml(dedent`
       <div>p { color: red }</div>
     `);
-    expect(mockHighLightSpy.mock.calls.length).toBe(0);
+    expect(mockHighlightSpy).toHaveBeenCalledTimes(0);
     expect(result).toMatchSnapshot();
   });
 });
