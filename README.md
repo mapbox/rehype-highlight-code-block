@@ -1,5 +1,7 @@
 # @mapbox/rehype-highlight-code-block
 
+[![Build Status](https://travis-ci.org/mapbox/rehype-highlight-code-block.svg?branch=master)](https://travis-ci.org/mapbox/rehype-highlight-code-block)
+
 [rehype](https://github.com/wooorm/rehype) plugin that finds code blocks in HTML and lets you highlight them with a function.
 
 **Best suited for Node**, because it includes [an HTML parser](https://github.com/inikulin/parse5) to parse the return value of your highlighting function.
