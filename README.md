@@ -15,12 +15,18 @@ npm install @mapbox/rehype-highlight-code-block
 
 ## API
 
+Follow the directions for using rehype plugins.
+
 `rehype().use(rehypeHighlightCodeBlock, options)`
 
-**Options**
+### options
 
-- **highlight** `(code: string, lang?: string) => ?string` (required) -
-  A function that accepts two arguments, `code` and `lang`, and returns a string of HTML representing `code` with syntax highlighting (or a falsey value if you don't want to highlight that block).
+#### highlight
+
+Type: `(code: string, lang?: string) => ?string`
+**Required.**
+
+A function that accepts two arguments, `code` and `lang`, and returns a string of HTML representing `code` with syntax highlighting (or a falsey value if you don't want to highlight that block).
 
 Every time a `pre > code` node is found, its contents are passed to `options.highlight`.
 The language passed to `options.highlight` with the code is determined by the first `language-` or `lang-` class found on the `code` node.
