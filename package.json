@@ -1,7 +1,7 @@
 {
   "name": "@mapbox/rehype-highlight-code-block",
   "description": "rehype plugin that finds code blocks in HTML and lets you highlight them",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",

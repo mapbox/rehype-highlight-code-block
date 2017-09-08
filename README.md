@@ -2,10 +2,10 @@
 
 [![Build Status](https://travis-ci.org/mapbox/rehype-highlight-code-block.svg?branch=master)](https://travis-ci.org/mapbox/rehype-highlight-code-block)
 
-[rehype](https://github.com/wooorm/rehype) plugin that finds code blocks in HTML and lets you highlight them with a function.
+[rehype] plugin that finds code blocks in HTML and lets you highlight them with a function.
 
-**Best suited for Node**, because it includes [an HTML parser](https://github.com/inikulin/parse5) to parse the return value of your highlighting function.
-If you are doing your syntax highlighting in the browser, you might consider [rehype-highlight](https://github.com/wooorm/rehype-highlight).
+**Best suited for Node**, because it includes an HTML parser, [parse5](https://github.com/inikulin/parse5), to parse the return value of your highlighting function.
+If you are doing your syntax highlighting in the browser, you might consider [lowlight] or [refractor], both of which will work with [rehype] or other [unified] tools.
 
 ## Installation
 
@@ -23,20 +23,20 @@ Follow the directions for using rehype plugins.
 
 #### highlight
 
-Type: `(code: string, lang?: string) => ?string`
+Type: `(code: string, lang?: string) => ?string`.
 **Required.**
 
-A function that accepts two arguments, `code` and `lang`, and returns a string of HTML representing `code` with syntax highlighting (or a falsey value if you don't want to highlight that block).
+A function that accepts two arguments, `code` and `lang`, and returns a string of HTML representing `code` with syntax highlighting (or a falsy value if you don't want to highlight that block).
 
 Every time a `pre > code` node is found, its contents are passed to `options.highlight`.
 The language passed to `options.highlight` with the code is determined by the first `language-` or `lang-` class found on the `code` node.
 
-If `options.highlight` returns a falsey value, the code block will not be altered.
+If `options.highlight` returns a falsy value, the code block will not be altered.
 If it returns an HTML string, that string will be parsed and inserted into the AST.
 
 ## Usage
 
-Use is as a rehype plugin.
+Use [as a rehype plugin](https://github.com/wooorm/rehype/blob/master/doc/plugins.md#using-plugins).
 
 Some examples of how you might do that:
 
@@ -83,3 +83,8 @@ unified()
   })
   .process(/* some markdown */);
 ```
+
+[rehype]: https://github.com/wooorm/rehype
+[unified]: https://github.com/unifiedjs/unified
+[lowlight]: https://github.com/wooorm/lowlight
+[refractor]: https://github.com/wooorm/refractor
